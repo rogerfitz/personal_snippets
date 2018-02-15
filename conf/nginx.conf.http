@@ -1,0 +1,39 @@
+worker_processes  auto;
+
+daemon on;
+error_log /var/log/nginx.log info;
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    ## Rewrite http to https
+
+    server {
+        listen 5000 default_server;
+        listen [::]:5000 default_server;
+        server_name _;
+        location / {
+            proxy_pass http://127.0.0.1:5001;
+        }
+        location = /favicon.ico { access_log off; log_not_found off; }
+
+        location /static {
+                alias /home/ubuntu/ff_servicing/src/static;
+        }
+        location /media {
+                alias /home/ubuntu/ff_servicing/src/media/;
+        }
+    }
+
+  upstream djangosite {
+    server 127.0.0.1:5001 fail_timeout=2s;
+  }
+
+
+}
