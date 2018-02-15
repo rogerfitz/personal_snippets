@@ -10,6 +10,5 @@ rm Anaconda3-4.2.0-Linux-x86_64.sh
 echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc
 echo 'export PYTHONHOME="~/anaconda/bin"' >> ~/.bashrc
 
-lsof -i :5001
 fuser 5001/tcp
-fuser -k 5001/tcp
+fuser -k 5001/tcp #kill all proc on port
