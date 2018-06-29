@@ -12,3 +12,4 @@ echo 'export PYTHONHOME="~/anaconda/bin"' >> ~/.bashrc
 
 fuser 5001/tcp
 fuser -k 5001/tcp #kill all proc on port
+ps --sort -rss -eo rss,pid,command | head
