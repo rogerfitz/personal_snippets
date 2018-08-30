@@ -5,8 +5,8 @@ docker run -it -p "127.0.0.1:8081:8080"
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
 
 #install anaconda without prompt
-bash Anaconda3-4.2.0-Linux-x86_64.sh -b -p ~/anaconda
-rm Anaconda3-4.2.0-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh -O Anaconda3-Linux-x86_64.sh
+bash Anaconda3-Linux-x86_64.sh -b -p ~/anaconda
 echo 'export PATH="~/anaconda/bin:$PATH"' >> ~/.bashrc
 echo 'export PYTHONHOME="~/anaconda/bin"' >> ~/.bashrc
 
