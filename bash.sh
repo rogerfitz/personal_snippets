@@ -13,3 +13,5 @@ fuser 5001/tcp
 fuser -k 5001/tcp #kill all proc on port
 ps --sort -rss -eo rss,pid,command | head
 du -a . | sort -n -r | head -n 5
+
+sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches***
