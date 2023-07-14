@@ -12,6 +12,6 @@ echo 'export PATH="~/anaconda/bin/:$PATH"' >> ~/.bashrc
 fuser 5001/tcp
 fuser -k 5001/tcp #kill all proc on port
 ps --sort -rss -eo rss,pid,command | head
-du -a . | sort -n -r | head -n 5
+du -h . | sort -n -r | head -n 10
 
 sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches***
